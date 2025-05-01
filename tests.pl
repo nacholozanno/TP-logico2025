@@ -13,8 +13,8 @@ test(planta_color_amarillo, set(X == [tulip, sunflower])) :-
 :-begin_tests(punto2).
 test(riego_especial, fail) :-
     riegoEspecial(_).
-test(insectos_beneficos, set(X == [rose, tulip, sunflower])) :-
-    atraeInsectos_beneficos(X).
+test(insectos_beneficios, set(X == [rose, tulip, sunflower])) :-
+    atraeInsectos_beneficios(X).
 test(es_alta, set(X == [rose, cactus, fern, bamboo, ivy])) :-
     esAlta(X).
 :-end_tests(punto2).
