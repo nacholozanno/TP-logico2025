@@ -77,7 +77,11 @@ esAlta(Planta) :-
 %3 Se necesita conocer el conjunto de todas las plantas que son cortas y de tipo flor.
 plantaCortaFlor(Planta) :-
     planta(Planta, altura(corta)),
-    planta(Planta, tipo(flor)).
+    planta(Planta, tipo(flor)).    
+esPlantaCortaFlor(Planta, Conjunto) :-
+    plantaCortaFlor(Planta),
+    conjuntoCortoFlor(Conjunto),
+    member(Planta, Conjunto).
 %4 Ahora debemos agregar las pistas obtenidas durante las observaciones. Por ejemplo:
 pista(arbol_rojo, tipo(arbusto)).
 pista(arbol_rojo, altura(media)).
