@@ -98,18 +98,20 @@ coincideConPistas(Planta, Observador) :-
            
 %5 Finalmente, queremos saber si una planta está atrayendo más visitas que su compañera.
 %Para ello, la cantidad de pistas que cumple debe ser mayor que la de las plantas compañeras.
-planta_atrae_mas_visitas(Planta, Observador) :-
+pistasCumple(Planta, Observador, Cantidad) :-
+    findall(Caracteristica,
+            (pista(Observador, Caracteristica),
+             planta(Planta, Caracteristica)),
+            Lista),
+    length(Lista, Cantidad).
+
+% Una planta atrae más visitas que su compañera si cumple más pistas
+plantaMasVisitas(Planta, Observador) :-
     planta(Planta, _),
     plantas_companeras(Planta, Companera),
     Companera \= Planta,
-    pistas_que_cumple(Planta, Observador, CantPlanta),
-    pistas_que_cumple(Companera, Observador, CantCompanera),
+    pistasCumple(Planta, Observador, CantPlanta),
+    pistasCumple(Companera, Observador, CantCompanera),
     CantPlanta > CantCompanera.
-
-pistas_que_cumple(Planta, Observador, Cantidad) :-
-    aggregate_all(count, 
-        (pista(Observador, Caracteristica),
-         planta(Planta, Caracteristica)),
-        Cantidad).
 
 
