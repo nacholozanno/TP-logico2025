@@ -73,7 +73,7 @@ atraeInsectosBeneficos(Planta) :-
     planta(Planta, color(amarillo)).
     
 %c. Las plantas que no son de tipo flor son consideradas altas.
-plantasNoFlor(Planta) :-
+plantasNoFlorAlta(Planta) :-
     planta(Planta, tipo(Tipo)),
     Tipo \= flor.
 %Realizar el predicado que nos permita agregar este conocimiento y el punto 1 no deba modificarse.
